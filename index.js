@@ -130,7 +130,14 @@ inquirer
             }
         },
         {
-            type: "confirm",
-            name: "continue",
-            message: "Would you like to add another team member?",
-        }]);
+            type: 'confirm',
+            name: 'continue',
+            message: 'Would you like to enter another employee?',
+        }
+    ]);
+
+
+
+    // if (continue) {
+        // ask employee_type
+   // } else { end prompts }
