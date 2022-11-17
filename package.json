@@ -1,0 +1,27 @@
+{
+  "name": "myteam-app",
+  "version": "1.0.0",
+  "description": "Generate an HTML page for your software team",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ScottsC0de/myteam-app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ScottsC0de/myteam-app/issues"
+  },
+  "homepage": "https://github.com/ScottsC0de/myteam-app#readme",
+  "dependencies": {
+    "inquirer": "^8.2.4"
+  }
+}
