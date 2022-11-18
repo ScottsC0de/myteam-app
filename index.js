@@ -146,6 +146,10 @@ employee.setTeam();
 
 
 
+// .catch(function(err) {
+//     console.log(err);
+//   });
+
     // if (continue) {
         // ask employee_type
    // } else { end prompts }
