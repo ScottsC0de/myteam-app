@@ -1,0 +1,15 @@
+* {
+    box-sizing: border-box;
+}
+
+.manager-box {
+    height: 350px;
+    width: 400px;
+    border: solid 10px black;
+}
+
+.employee-box {
+    height: 350px;
+    width: 400px;
+    border: solid 10px black;
+}
