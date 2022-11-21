@@ -95,70 +95,85 @@ function setTeam() {
                 message: "Please enter your employee's role:",
                 choices: ['Manager', 'Engineer', 'Intern']
             },
+            {
+                type: 'input',
+                name: 'office_number',
+                message: 'Please enter your office number:',
+                validate: numbers => /[1-9]/gi.test(numbers),
+                when: (answers) => {
+                    if (answers.employee_role === "Manager") {
+                        return true;
+                    }
+                },
+            },
+            {
+                type: 'input',
+                name: 'github',
+                message: 'Please enter your github username:',
+                when: (answers) => {
+                    if (answers.employee_role === "Engineer") {
+                        return true;
+                    }
+                },
+            },
+            {
+                type: 'input',
+                name: 'school',
+                message: 'Please enter the name of your school:',
+                when: (answers) => {
+                    if (answers.employee_role === "Intern") {
+                        return true;
+                    }
+                },
+            }
         ])
         .then((answers) => {
             switch (answers.employee_role) {
                 case 'Manager':
-                    inquirer
-                        .prompt([
-                            {
-                                type: 'input',
-                                name: 'office_number',
-                                message: 'Please enter your office number:',
-                                validate: numbers => /[1-9]/gi.test(numbers),
-                            }
-                        ])
-                        .then(addAnotherEmployee());
+                    console.log(answers.employee_role)
+                    // const { employee_name, employee_role, employee_id, employee_email, office_number } = managerInfo;
+                    // const newManager = new Manager(managerInfo);
+                    // createManagerCard(newManager);
                     break;
                 case 'Engineer':
-                    inquirer
-                        .prompt([
-                            {
-                                type: 'input',
-                                name: 'github',
-                                message: 'Please enter your GitHub username:',
-                            }
-                        ])
-                        .then(addAnotherEmployee());
+                    console.log(answers.employee_role)
+                    // const { employee_name, employee_role, employee_id, employee_email, github } = engineerInfo;
+                    // const newEngineer = new Engineer(engineerInfo);
+                    // createEngineerCard(newEngineer);
                     break;
                 case 'Intern':
-                    inquirer
-                        .prompt([
-                            {
-                                type: 'input',
-                                name: 'school',
-                                message: 'Please enter the name of your school:',
-                            }
-                        ])
-                        .then(addAnotherEmployee());
+                    console.log(answers.employee_role)
+                    // const { employee_name, employee_role, employee_id, employee_email, school } = internInfo;
+                    // const newIntern = new Intern(internInfo);
+                    // createInternCard(newIntern);
                     break;
                 default: 'Employee';
             };
         })
-    function addAnotherEmployee() {
-        inquirer
-            .prompt[(
+        .then(() => {
+            inquirer.prompt([
                 {
                     type: 'confirm',
                     name: 'add_employee',
                     message: 'Would you like to add another employee?',
                     default: false,
                 }
-            )]
-            .then((answers) => {
-                answers.add_employee ? setTeam() : false;
-            })
-            .then((answers) => {
-                const myTeamApp = generateTeam(answers);
-                console.log(answers);
+            ])
+                .then((answers) => {
+                    answers.add_employee ? setTeam() : false
+                })
+        });
+    // .then((answers) => {
+    //     const myTeamApp = generateTeam(answers);
+    //     console.log(answers);
 
-                // let the user know if it worked
-                fs.writeFile('./dist/index.html', myTeamApp, (err) =>
-                    err ? console.log(err) : console.log("Success! To see your team, right click on your index.html file and select 'Open In Default Browser'!")
-                );
-            });
-    }
+    //     // let the user know if it worked
+    //     fs.writeFile('./dist/index.html', myTeamApp, (err) =>
+    //         err ? console.log(err) : console.log("Success! To see your team, right click on your index.html file and select 'Open In Default Browser'!")
+    //     );
+    // });
 };
+
 
 setTeam();
 
