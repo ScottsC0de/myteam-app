@@ -1,135 +1,106 @@
 // npm init -y
 // npm i inquirer@8.2.4
 
+// where questions will be asked based on user input and the objects chosen
+// step 1: import objects created in their respective files
 const Employee = require('./lib/Employee');
+const Manager = require('./lib/Manager');
+const Engineer = require('./lib/Engineer');
+const Intern = require('./lib/Intern');
 
-const employee = new Employee();
+// import npm inquirer package and gain access to file system (fs)
+const inquirer = require('inquirer');
+const fs = require('fs');
 
-employee.setTeam();
+// array where all employees will go 
+// const myTeamArray = [];
 
-// const inquirer = require('inquirer');
-// const fs = require('fs');
+// variable used to create each seperate employee
+// const newEmployee = new Employee(employee_name, employee_role, employee_id, employee_email);
 
-// inquirer
-//     .prompt([
-//         {
-//             type: 'input',
-//             message: "What is your team manager's name?",
-//             name: 'manager_name',
-//         },
-//         {
-//             type: 'input',
-//             message: 'Please enter your employee ID?',
-//             name: 'manager_id',
-//         },
-//         {
-//             type: 'input',
-//             message: 'Please enter your email address',
-//             name: 'manager_email',
-//         },
-//         {
-//             type: 'input',
-//             message: 'Please enter your office number',
-//             name: 'manager_office_number',
-//         },
-//         {
-//             type: 'list',
-//             message: 'Add an engineer or intern to your page?',
-//             choices: ['Engineer', 'Intern'],
-//             name: 'employee_type',
-//         },
-//         {
-//             type: "input",
-//             name: "engineer_name",
-//             message: "Please enter engineer's name",
-//             when: (answers) => {
-//                 if (answers.employee_type === "Engineer") {
-//                     return true;
-//                 }
-//             }
-//         },
-//         {
-//             type: "input",
-//             name: "engineer_id",
-//             message: "Please enter engineer's id",
-//             when: (answers) => {
-//                 if (answers.employee_type === "Engineer") {
-//                     return true;
-//                 }
-//             }
-//         },
-//         {
-//             type: "input",
-//             name: "engineer_email",
-//             message: "Please enter engineer's email",
-//             when: (answers) => {
-//                 if (answers.employee_type === "Engineer") {
-//                     return true;
-//                 }
-//             }
-//         }, {
-//             type: "input",
-//             name: "engineer_github",
-//             message: "Please enter engineer's github",
-//             when: (answers) => {
-//                 if (answers.employee_type === "Engineer") {
-//                     return true;
-//                 }
-//             }
-//         },
-//         {
-//             type: "input",
-//             name: "intern_name",
-//             message: "Please enter intern's name",
-//             when: (answers) => {
-//                 if (answers.employee_type === "Intern") {
-//                     return true;
-//                 }
-//             }
-//         },
-//         {
-//             type: "input",
-//             name: "intern_id",
-//             message: "Please enter intern's id",
-//             when: (answers) => {
-//                 if (answers.employee_type === "Intern") {
-//                     return true;
-//                 }
-//             }
-//         },
-//         {
-//             type: "input",
-//             name: "intern_email",
-//             message: "Please enter intern's email",
-//             when: (answers) => {
-//                 if (answers.employee_type === "Intern") {
-//                     return true;
-//                 }
-//             }
-//         },
-//         {
-//             type: "input",
-//             name: "intern_school",
-//             message: "Please enter intern's school",
-//             when: (answers) => {
-//                 if (answers.employee_type === "Intern") {
-//                     return true;
-//                 }
-//             }
-//         },
-//         {
-//             type: 'confirm',
-//             name: 'continue',
-//             message: 'Would you like to enter another employee?',
-//         }
-//     ]);
+// newEmployee.setTeam();
+function setTeam() {
+    inquirer
+        .prompt([
+            {
+                type: 'input',
+                name: 'employee_name',
+                message: "Please enter your employee's name:",
+                // validate: names => /[a-z]/gi.test(names),
+            },
+            {
+                type: 'input',
+                name: 'employee_id',
+                message: "Please enter your employee's ID number:",
+                validate: ids => /[1-9]/gi.test(ids),
+            },
+            {
+                type: 'input',
+                name: 'employee_email',
+                message: "Please enter your employee's email:",
+            },
+            {
+                type: 'list',
+                name: 'employee_role',
+                message: "Please enter your employee's role:",
+                choices: ['Manager', 'Engineer', 'Intern']
+            },
+        ])
+        .then((answers) => {
+            switch (answers.employee_role) {
+                case 'Manager':
+                    inquirer
+                        .prompt([
+                            {
+                                type: 'input',
+                                name: 'office_number',
+                                message: 'Please enter your office number:',
+                                validate: numbers => /[1-9]/gi.test(numbers),
+                            }
+                        ]);
+                    addAnotherEmployee();
+                    break;
+                case 'Engineer':
+                    inquirer
+                        .prompt([
+                            {
+                                type: 'input',
+                                name: 'github',
+                                message: 'Please enter your GitHub username:',
+                            }
+                        ]);
+                    addAnotherEmployee();
+                    break;
+                case 'Intern':
+                    inquirer
+                        .prompt([
+                            {
+                                type: 'input',
+                                name: 'school',
+                                message: 'Please enter the name of your school:',
+                            }
+                        ]);
+                    addAnotherEmployee();
+                    break;
+                default: 'Employee';
+            };
+        })
+    function addAnotherEmployee() {
+        inquirer
+            .prompt[(
+                {
+                    type: 'confirm',
+                    name: 'add_employee',
+                    message: 'Would you like to add another employee?',
+                    default: true,
+                }
+            )];
+    }
+}
 
+setTeam();
 
 
 // .catch(function(err) {
 //     console.log(err);
 //   });
-
-    // if (continue) {
-        // ask employee_type
-   // } else { end prompts }
