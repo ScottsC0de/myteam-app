@@ -2,11 +2,11 @@ const Employee = require('../lib/Employee');
 
 describe("Employee", () => {
     it("should be an object with user inputted Name, ID, and email", () => {
-        const employeeTest = new Employee('Bart Simpson', 3403, 'Bartsimpson@gmail.com');
+        const employeeTest = new Employee('Bart Simpson', 3403, 'bartsimpson@gmail.com');
 
         expect(employeeTest.getName()).toEqual('Bart Simpson');
         expect(employeeTest.getId()).toEqual(3403);
-        expect(employeeTest.getEmail()).toEqual('Bartsimpson@gmail.com');
+        expect(employeeTest.getEmail()).toEqual('bartsimpson@gmail.com');
     });
 });
 
