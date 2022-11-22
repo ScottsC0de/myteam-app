@@ -1,7 +1,6 @@
 // npm init -y
 // npm i inquirer@8.2.4
 
-// where questions will be asked based on user input and the objects chosen
 // import objects created in their respective files
 const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
@@ -14,6 +13,7 @@ const fs = require('fs');
 // array where all employees will go 
 const myTeamArray = [];
 
+// main app function. asks questions and puts user answers into objects which are then stored in the myTeamArray
 function setTeam() {
     inquirer
         .prompt([
@@ -21,13 +21,13 @@ function setTeam() {
                 type: 'input',
                 name: 'name',
                 message: "Please enter your employee's name:",
-                validate: names => /[a-z]/gi.test(names),
+                validate: names => /[a-z]/gi.test(names), // so user types in letters for name
             },
             {
                 type: 'input',
                 name: 'id',
                 message: "Please enter your employee's ID number:",
-                validate: ids => /[1-9]/gi.test(ids),
+                validate: ids => /[1-9]/gi.test(ids),  // so user types in numbers for id
             },
             {
                 type: 'input',
@@ -45,6 +45,7 @@ function setTeam() {
                 name: 'office_number',
                 message: 'Please enter your office number:',
                 validate: numbers => /[1-9]/gi.test(numbers),
+                // only ask when previous question equals Manager
                 when: (answers) => {
                     if (answers.role === "Manager") {
                         return true;
@@ -72,58 +73,56 @@ function setTeam() {
                 },
             }
         ])
+        // put all answers into respective objects based off role prompt
         .then((answers) => {
             switch (answers.role) {
                 case 'Manager':
-                    console.log(answers.role)
-                    // const { name, role, id, email, office_number } = managerInfo;
+                    // create object by matching params here with original object params
+                    // "new" creates new Object
                     const newManager = new Manager(answers.name, answers.id, answers.email, answers.office_number);
                     myTeamArray.push(newManager);
                     break;
                 case 'Engineer':
-                    console.log(answers.role)
-                    // const { name, role, id, email, github } = engineerInfo;
                     const newEngineer = new Engineer(answers.name, answers.id, answers.email, answers.github);
                     myTeamArray.push(newEngineer);
                     break;
                 case 'Intern':
-                    console.log(answers.role)
-                    // const { name, role, id, email, school } = internInfo;
                     const newIntern = new Intern(answers.name, answers.id, answers.email, answers.school);
                     myTeamArray.push(newIntern);
                     break;
                 default: 'Employee';
             };
         })
+        // prompt to continue adding employee cards or terminate program
         .then(() => {
             inquirer.prompt([
                 {
                     type: 'confirm',
                     name: 'add_employee',
                     message: 'Would you like to add another employee?',
-                    // default: false,
                 }
             ])
                 .then((answers) => {
-                    // ternary operator
-                    // if add_employee = yes run setTeam() else return
                     if (answers.add_employee) {
+                        // run the prompt again
                         setTeam();
                     } else {
                         const renderedHtml = generateHtml(myTeamArray);
 
-                        fs.writeFile('./dist/index.html', renderedHtml, (err) =>
-                            err ? console.log(err) : console.log(`Success! Created your team file`)
+                        fs.writeFile('./dist/index.html', renderedHtml, /* <--- must be string */(err) =>
+                            err ? console.log(err) : console.log(`Success! To see your new HTML file, right click index.html and click "Open In Default Browser"`)
                         )
                     };
-                    // answers.add_employee ? setTeam() : generateHtml(myTeamArray);
                 })
         })
 };
 
+// calling the main function
 setTeam();
 
-
+// the HTML file to be created
+// using filter() inside object literal to select all members from their respective roles out of the myTeamArray
+// based on their role, they are then placed into their respective generate functions below
 const generateHtml = (myTeam) => (
     `<!DOCTYPE html>
 <html lang="en">
@@ -158,7 +157,8 @@ const generateHtml = (myTeam) => (
 </html>`
 )
 
-
+// functions used to make seperate employee cards based on role
+// calling methods from object files that return the parameters entered from prompt
 const createManagerCard = (manager) =>
     `<section class="team-card text-center manager-box mb-5">
             <div class="card-info mt-3">
