@@ -4,7 +4,6 @@ describe("Employee", () => {
     it("should be an Engineer object with user inputted Name, ID, email, and github", () => {
         const employeeTest = new Engineer('Marge Simpson', 3401, 'Margesimpson@springfield.com', '@Margesc0de');
 
-        // expect(employeeTest).toBe('object');
         expect(employeeTest.getName()).toEqual('Marge Simpson');
         expect(employeeTest.getId()).toEqual(3401);
         expect(employeeTest.getEmail()).toEqual('Margesimpson@springfield.com');
