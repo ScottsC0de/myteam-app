@@ -2,13 +2,13 @@ const Engineer = require('../lib/Engineer')
 
 describe("Employee", () => {
     it("should be an Engineer object with user inputted Name, ID, email, and github", () => {
-        const employeeTest = new Engineer('Scott', 23, 'Scott5902@gmail.com', '@scottsc0de');
+        const employeeTest = new Engineer('Marge Simpson', 3401, 'Margesimpson@springfield.com', '@Margesc0de');
 
-        expect(employeeTest).toBe('object');
-        expect(employeeTest.name).toEqual('Scott');
-        expect(employeeTest.id).toEqual(23);
-        expect(employeeTest.email).toEqual('Scott5902@gmail.com');
-        expect(employeeTest.github).toEqual('@scottsc0de');
+        // expect(employeeTest).toBe('object');
+        expect(employeeTest).getName().toEqual('Marge Simpson');
+        expect(employeeTest).getId().toEqual(3401);
+        expect(employeeTest).getEmail().toEqual('Margesimpson@springfield.com');
+        expect(employeeTest).getGitHub().toEqual('@Margessc0de');
     });
 });
 

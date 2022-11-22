@@ -15,10 +15,6 @@ const fs = require('fs');
 // array where all employees will go 
 // const myTeamArray = [];
 
-// variable used to create each seperate employee
-// const newEmployee = new Employee(employee_name, employee_role, employee_id, employee_email);
-
-// newEmployee.setTeam();
 function setTeam() {
     inquirer
         .prompt([
@@ -83,8 +79,8 @@ function setTeam() {
                     console.log(answers.role)
                     // const { name, role, id, email, office_number } = managerInfo;
                     const newManager = new Manager(answers.name, answers.id, answers.email, answers.role, answers.office_number);
-                    const manager = createManagerCard(newManager);
-                    fs.appendFile('./dist/index.html', manager, (err) =>
+                    const managerCard = createManagerCard(newManager);
+                    fs.appendFile('./dist/index.html', managerCard, (err) =>
                         err ? console.log(err) : console.log(`Success! Added ${answers.name} to your Team!`)
                     );
                     break;
@@ -92,8 +88,8 @@ function setTeam() {
                     console.log(answers.role)
                     // const { name, role, id, email, github } = engineerInfo;
                     const newEngineer = new Engineer(answers.name, answers.id, answers.email, answers.role, answers.github);
-                    const engineer = createEngineerCard(newEngineer);
-                    fs.appendFile('./dist/index.html', engineer, (err) =>
+                    const engineerCard = createEngineerCard(newEngineer);
+                    fs.appendFile('./dist/index.html', engineerCard, (err) =>
                         err ? console.log(err) : console.log(`Success! Added ${answers.name} to your Team!`)
                     );
                     break;
@@ -101,8 +97,8 @@ function setTeam() {
                     console.log(answers.role)
                     // const { name, role, id, email, school } = internInfo;
                     const newIntern = new Intern(answers.name, answers.id, answers.email, answers.role, answers.school);
-                    const intern = createInternCard(newIntern);
-                    fs.appendFile('./dist/index.html', intern, (err) =>
+                    const internCard = createInternCard(newIntern);
+                    fs.appendFile('./dist/index.html', internCard, (err) =>
                         err ? console.log(err) : console.log(`Success! Added ${answers.name} to your Team!`)
                     );
                     break;
