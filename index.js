@@ -43,7 +43,7 @@ function setTeam() {
             {
                 type: 'input',
                 name: 'office_number',
-                message: 'Please enter your office number:',
+                message: 'Please enter the manager\'s office number:',
                 validate: numbers => /[1-9]/gi.test(numbers),
                 // only ask when previous question equals Manager
                 when: (answers) => {
@@ -55,7 +55,7 @@ function setTeam() {
             {
                 type: 'input',
                 name: 'github',
-                message: 'Please enter your github username:',
+                message: 'Please enter the engineer\'s github username:',
                 when: (answers) => {
                     if (answers.role === "Engineer") {
                         return true;
@@ -65,7 +65,7 @@ function setTeam() {
             {
                 type: 'input',
                 name: 'school',
-                message: 'Please enter the name of your school:',
+                message: 'Please enter the name of the intern\'s school:',
                 when: (answers) => {
                     if (answers.role === "Intern") {
                         return true;
