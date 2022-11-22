@@ -133,8 +133,9 @@ setTeam();
 const createManagerCard = ({ name, role, id, email, office_number }) =>
     `<section class="team-card text-center manager-box mb-5">
             <div class="card-info mt-3">
-                <h2>Name: ${name}</h2>
-                <p>${role}</p>
+                <h2 class="mb-4">${name}</h2>
+                <img src="../img/manager-icon.png" alt="manager icon; a folder with a gavel">
+                <p><strong>${role}</strong></p>
                 <p>ID: ${id}</p>
                 <p>Email: <a href="mailto:${email}">${email}</a>a/p>
                 <p>Office #: ${office_number}</p>
@@ -142,10 +143,11 @@ const createManagerCard = ({ name, role, id, email, office_number }) =>
         </section>`
 
 const createEngineerCard = ({ name, role, id, email, github }) => `
-        <section class="team-card text-center employee-box">
+        <section class="team-card text-center employee-box mb-5">
             <div class="card-info mt-3">
-            <h2>Name: ${name}</h2>
-            <p>${role}</p>
+            <h2 class="mb-4">${name}</h2>
+            <img src="../img/engineer-icon.png" alt="employee icon; a blank screen with HTML open/close tags">
+            <p><strong>${role}</strong></p>
             <p>ID: ${id}</p>
             <p>Email: <a href="mailto:${email}">${email}</a>a/p>
             <p>GitHub: <a href="https://github.com/${github}">${github}</a></p>
@@ -153,10 +155,11 @@ const createEngineerCard = ({ name, role, id, email, github }) => `
         </section>
 `
 const createInternCard = ({ name, role, id, email, school }) => `
-        <section class="team-card text-center employee-box">
+        <section class="team-card text-center employee-box mb-5">
             <div class="card-info mt-3">
-            <h2>Name: ${name}</h2>
-            <p>${role}</p>
+            <h2 class="mb-4">${name}</h2>
+            <img src="../img/intern-icon.png" alt="intern icon; a briefcase and graduation cap">
+            <p><strong>${role}</strong></p>
             <p>ID: ${id}</p>
             <p>Email: <a href="mailto:${email}">${email}</a>a/p>
             <p>School: ${school}</p>

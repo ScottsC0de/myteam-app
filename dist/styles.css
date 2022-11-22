@@ -2,14 +2,25 @@
     box-sizing: border-box;
 }
 
+body {
+    background-color: rgb(38, 220, 159);
+}
+
+img {
+    height: 80px;
+    width: 80px;
+}
+
 .manager-box {
     height: 350px;
     width: 400px;
     border: solid 10px black;
+    background-color: rgb(149, 149, 149);
 }
 
 .employee-box {
     height: 350px;
     width: 400px;
     border: solid 10px black;
+    background-color: rgb(149, 149, 149);
 }
