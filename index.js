@@ -131,6 +131,9 @@ const generateHtml = (myTeam) => (
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Asap&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="./styles.css">
@@ -162,7 +165,7 @@ const generateHtml = (myTeam) => (
 const createManagerCard = (manager) =>
     `<section class="team-card text-center manager-box mb-5">
             <div class="card-info mt-3">
-                <h2 class="mb-4">${manager.getName()}</h2>
+                <h2 class="mb-3">${manager.getName()}</h2>
                 <img src="../img/manager-icon.png" alt="manager icon; a folder with a gavel">
                 <p><strong>${manager.getRole()}</strong></p>
                 <p>ID: ${manager.getId()}</p>
