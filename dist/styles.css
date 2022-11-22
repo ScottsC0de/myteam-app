@@ -2,6 +2,10 @@
     box-sizing: border-box;
 }
 
+h1 {
+    font-size: 45px;
+}
+
 body {
     background-color: rgb(38, 220, 159);
     font-size: 1.2rem;
