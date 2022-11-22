@@ -182,7 +182,7 @@ const createEngineerCard = (engineer) => `
             <p><strong>${engineer.getRole()}</strong></p>
             <p>ID: ${engineer.getId()}</p>
             <p>Email: <a href="mailto:${engineer.getEmail()}">${engineer.getEmail()}</a></p>
-            <p>GitHub: <a href="https://github.com/${engineer.getGitHub()}">${engineer.getGitHub()}</a></p>
+            <p>GitHub: <a href="https://github.com/${engineer.getGitHub()}" target="_blank">${engineer.getGitHub()}</a></p>
             </div>
         </section>
 `
