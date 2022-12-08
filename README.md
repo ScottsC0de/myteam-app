@@ -15,7 +15,6 @@ This ReadMe file was generated using:
 - [Description](#description-id)
 - [Installation](#installation-id)
 - [Usage](#usage-id)
-- [License](#license-id)
 - [Contributing](#contributing-id)
 - [Tests](#tests-id)
 - [Questions](#questions-id)
