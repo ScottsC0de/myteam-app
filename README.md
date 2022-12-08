@@ -1,8 +1,6 @@
 # myTeam App
 Generate an HTML page for your software team
 
-![alt text](https://img.shields.io/badge/License-MIT-yellow.svg)
-
 <img src="https://octodex.github.com/images/daftpunktocat-thomas.gif" alt="github mascot with daft punk helmet on" width="200"/>
 
 [//]: # (demonstrating some cool markdown syntax tricks. this is a markdown comment)
@@ -34,9 +32,6 @@ To use this application, you must download node onto your local machine. Please 
 With node installed, you can now run node commands on JavaScript files. To use this app, you must be in its file from the CLI or an app that allows you to run CLI commands. For this app, we used VSCode’s Integrated Terminal. If you are using VSCode, right click on the index.js file and click ‘Open In Integrated Terminal’. Run a node index.js command to begin creating your ReadMe file. Answer all prompts and watch the magic happen.
 
 Full visual demonstration: https://youtu.be/a0Dp6FPVI6w
-
-## <a id="license-id"></a>License
-This application is covered under **MIT License**
     
 ## <a id="contributing-id"></a>Contributing
 n/a
