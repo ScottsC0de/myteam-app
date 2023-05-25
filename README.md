@@ -10,6 +10,7 @@ Generate an HTML page for your software team
 - [Usage](#usage-id)
 - [Contributing](#contributing-id)
 - [Tests](#tests-id)
+- [Screenshots](#screenshots-id)
 - [Questions](#questions-id)
 
 ## <a id="description-id"></a>Description
@@ -33,6 +34,27 @@ With jest installed, you can now run jest commands on JavaScript test files. Rig
 
 If you missed it above, here is the full visual demonstration: https://youtu.be/a0Dp6FPVI6w
 
+<br>
+
+## <a id="screenshots-id"></a>Screenshots
+
+![Testing models using Simpson character examples](img/myteam_pic_1.png)
+<br>
+
+![Writing model info using inquirer npm](img/myteam_pic_2.png)
+<br>
+
+![HTML code output from inquirer](img/myteam_pic_3.png)
+<br>
+
+![More HTML code output from inquirer](img/myteam_pic_4.png)
+<br>
+
+![Created webpage 1/2](img/myteam_pic_5.png)
+<br>
+
+![Created webpage 2/2](img/myteam_pic_6.png)
+<br>
 
 ## <a id="questions-id"></a>Questions
 You can check out my repositories here on my GitHub account: 
